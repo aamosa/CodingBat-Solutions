@@ -1,6 +1,6 @@
 /**
  * Solutions to coding challenges from codingbat.com
- * Section: Map-2
+ * Section: 	Map-2
  * Date: 	12/22/2018
  * Author: 	Omar Ahmed
  *
