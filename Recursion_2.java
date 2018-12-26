@@ -8,7 +8,7 @@
 import java.util.Arrays;
 
 public class Recursion_2 {
-	/*
+	/**
 	 * Given an array of ints, is it possible to choose a group of some of the ints, 
 	 * such that the group sums to the given target?
 	 * groupSum(0, [2,4,8], 10) → true 
@@ -21,7 +21,7 @@ public class Recursion_2 {
 		return groupSum(start+1, nums, target);
 	}
 
-	/*
+	/**
 	 * Given an array of ints, is it possible to choose a group of some of the ints,
 	 * beginning at the start index, such that the group sums to the given target? 
 	 * However, with the additional constraint that all 6's must be chosen.
@@ -38,7 +38,7 @@ public class Recursion_2 {
 		return nums[start] == 6 ? groupSum6(start+1, nums, target-nums[start]) : groupSum6(start+1, nums, target);
 	}
 
-	/* 
+	/** 
 	 * Given an array of ints, is it possible to choose a group of some of the ints, such that the 
 	 * group sums to the given target with this additional constraint: If a value in the array is chosen 
 	 * to be in the group, the value immediately following it in the array must not be chosen. 
@@ -56,7 +56,7 @@ public class Recursion_2 {
 		return groupNoAdj(start+1, nums, target);
 	}
 
-	/* 
+	/** 
 	 * Given an array of ints, is it possible to choose a group of some of the ints, such that the group sums to the
 	 * given target with these additional constraints: all multiples of 5 in the array must be included in the group. 
 	 * If the value immediately following a multiple of 5 is 1, it must not be chosen.
@@ -68,7 +68,7 @@ public class Recursion_2 {
 	public static boolean groupSum5(int start, int[] nums, int target) {
 		if (start >= nums.length) return target == 0;
 		if (start < nums.length-1 && nums[start]%5 == 0) {
-	   	if (nums[start+1] == 1)
+	   		if (nums[start+1] == 1)
 				return groupSum5(start+2, nums, target-nums[start]);
 			return groupSum5(start+1, nums, target-nums[start]);
 		}
@@ -76,15 +76,15 @@ public class Recursion_2 {
 	}
 
 
-	/*
+	/**
 	 * Given an array of ints, is it possible to choose a group of some of the ints, such that the group sums to 
 	 * the given target, with this additional constraint: if there are numbers in the array that are adjacent and the
 	 * identical value, they must either all be chosen, or none of them chosen. (one loop can be used to find the 
 	 * extent of the identical values).
-	 * groupSumClump(0, [2,4,8], 10) → true
+	 * groupSumClump(0, [2,4,8], 10) 	 → true
 	 * groupSumClump(0, [1,2,4,8,1], 14) → true
-	 * groupSumClump(0, [2,4,4,8], 14) → false <--
-	 * groupSumClump(0, [8,2,2,1], 9) → true */
+	 * groupSumClump(0, [2,4,4,8], 14) 	 → false
+	 * groupSumClump(0, [8,2,2,1], 9) 	 → true */
 	public static boolean groupSumClump(int start, int[] nums, int target) {
 		if (start >= nums.length) return target == 0;
 		int d = 0;
@@ -102,19 +102,19 @@ public class Recursion_2 {
 
 
 
-	/*
+	/**
 	 * Given an array of ints, is it possible to divide the ints into two groups, so that the sums of the two
 	 * groups are the same. Every int must be in one group or the other. Write a recursive helper method that
 	 * takes whatever arguments you like, and make the initial call to your recursive helper from splitArray().
-	 * splitArray([2,2]) → true
-	 * splitArray([2,3]) → false
-	 * splitArray([5,2,3]) → true
+	 * splitArray([2,2]) 	→ true
+	 * splitArray([2,3]) 	→ false
+	 * splitArray([5,2,3]) 	→ true
 	 * splitArray([3,6,1,3,5])  */
 	public static boolean splitArray(int[] nums) {
 		return splitArrayHelper(0,0,nums,0);
 	}
 
-	/*
+	/**
 	 * This is a helper method for the splitArray method. */
 	public static boolean splitArrayHelper(int desiredSum, int start, int[] nums, int sum) {
 		if (start >= nums.length) return desiredSum == sum;
@@ -125,7 +125,7 @@ public class Recursion_2 {
 		}
 	}
 
-	/*
+	/**
 	 * Given an array of ints, is it possible to divide the ints into two groups, so that the sum of one group is a 
 	 * multiple of 10, and the sum of the other group is odd. Every int must be in one group or the other. 
 	 * Write a recursive helper method that takes whatever arguments you like, and make the initial call to your 
@@ -137,7 +137,7 @@ public class Recursion_2 {
 		return splitOdd10Helper(nums,0,0,0);
 	}
 
-	/*
+	/**
 	 * This is a helper method for the splitOdd10 method.  */
 	private static boolean splitOdd10Helper(int nums[], int start, int sumGroup10, int sumGroupOdd) {		
 		//base case - true if sum of one group is multiple of ten and sum of other group is odd.
@@ -149,11 +149,11 @@ public class Recursion_2 {
 		}
 	}
 
-	/* 
+	/** 
 	 * Given an array of ints, is it possible to divide the ints into two groups, so that the sum of the two groups
 	 * is the same, with these constraints: all the values that are multiple of 5 must be in one group, and all the
 	 * values that are a multiple of 3 (and not a multiple of 5) must be in the other.
-	 * split53([1,1]) → true
+	 * split53([1,1]) 	→ true
 	 * split53([1,1,1]) → false
 	 * split53([2,4,2]) → true 
 	 * split53([3, 5, 6, 10, 3, 3]) → true */
@@ -161,13 +161,10 @@ public class Recursion_2 {
 		return split53Helper(nums,0,0,0);
 	}
 
-	/* 
+	/** 
 	 * Helper method for the split53 method. */
 	private static boolean split53Helper(int[] nums, int start, int groupSum, int groupSum1) {
-		System.out.println("groupSum: " + groupSum);
-		System.out.println("groupSum1: " + groupSum1);
 		if (start >= nums.length) return groupSum == groupSum1;
-		 
 		if (nums[start]%3 == 0 && nums[start]%5 != 0) {
 			return split53Helper(nums, start+1, groupSum+nums[start], groupSum1);
 		}
@@ -181,6 +178,5 @@ public class Recursion_2 {
 		int[] nums = {3,5,8};
 		int[] nums2 = {2,5,10,4};
 		System.out.println(groupSum5(0,nums2,12));
-		// System.out.println(split53(nums));
 	}
 }
