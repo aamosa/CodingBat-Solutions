@@ -28,8 +28,6 @@ public class Recursion_2 {
 	 * groupSum6(0, [5,6,2], 8) → true
 	 * groupSum6(0, [5,6,2], 9) → false 
 	 * groupSum6(0, [3,2,4,6], 8) → true 
-	 * groupSum6(0, [1,6,2,6,5], 14) → true 
-	 * groupSum6(0, [1], 1) → true  */
 	public static boolean groupSum6(int start, int[] nums, int target) {
 		// base case
 		if (start >= nums.length) return target == 0;
@@ -46,7 +44,6 @@ public class Recursion_2 {
   	 * deal with nums[start], letting recursion deal with all the rest of the array.
 	 * groupNoAdj(0, [2,5,10,4], 12) → true
 	 * groupNoAdj(0, [2,5,10,4], 14) → false
-	 * groupNoAdj(0, [2,5,10,4,2], 7) → true
 	 * groupNoAdj(0, [2,5,10,4], 7) → false  */
 	public static boolean groupNoAdj(int start, int[] nums, int target) {
 		if (start >= nums.length) return target == 0;
@@ -62,8 +59,6 @@ public class Recursion_2 {
 	 * If the value immediately following a multiple of 5 is 1, it must not be chosen.
 	 * groupSum5(0, [2,5,10,4], 19) → true
 	 * groupSum5(0, [2,5,10,4], 17) → true 
-	 * groupSum5(0, [2,5,10,4], 12) → false  
-	 * groupSum5(0, [3,5,1], 9) → false 
 	 * groupSum5(0, [3,5,1], 4) → false  */
 	public static boolean groupSum5(int start, int[] nums, int target) {
 		if (start >= nums.length) return target == 0;
@@ -82,7 +77,6 @@ public class Recursion_2 {
 	 * identical value, they must either all be chosen, or none of them chosen. (one loop can be used to find the 
 	 * extent of the identical values).
 	 * groupSumClump(0, [2,4,8], 10) 	 → true
-	 * groupSumClump(0, [1,2,4,8,1], 14) → true
 	 * groupSumClump(0, [2,4,4,8], 14) 	 → false
 	 * groupSumClump(0, [8,2,2,1], 9) 	 → true */
 	public static boolean groupSumClump(int start, int[] nums, int target) {
@@ -108,8 +102,7 @@ public class Recursion_2 {
 	 * takes whatever arguments you like, and make the initial call to your recursive helper from splitArray().
 	 * splitArray([2,2]) 	→ true
 	 * splitArray([2,3]) 	→ false
-	 * splitArray([5,2,3]) 	→ true
-	 * splitArray([3,6,1,3,5])  */
+	 * splitArray([5,2,3]) 	→ true */
 	public static boolean splitArray(int[] nums) {
 		return splitArrayHelper(0,0,nums,0);
 	}
@@ -140,7 +133,6 @@ public class Recursion_2 {
 	/**
 	 * This is a helper method for the splitOdd10 method.  */
 	private static boolean splitOdd10Helper(int nums[], int start, int sumGroup10, int sumGroupOdd) {		
-		//base case - true if sum of one group is multiple of ten and sum of other group is odd.
 		if (start >= nums.length) return sumGroup10 % 10 == 0 && sumGroupOdd % 2 != 0;
 		if (splitOdd10Helper(nums, start+1, sumGroup10 + nums[start], sumGroupOdd)) {
 			return true;
@@ -154,9 +146,8 @@ public class Recursion_2 {
 	 * is the same, with these constraints: all the values that are multiple of 5 must be in one group, and all the
 	 * values that are a multiple of 3 (and not a multiple of 5) must be in the other.
 	 * split53([1,1]) 	→ true
-	 * split53([1,1,1]) → false
-	 * split53([2,4,2]) → true 
-	 * split53([3, 5, 6, 10, 3, 3]) → true */
+	 * split53([1,1,1]) 	→ false
+	 * split53([2,4,2]) 	→ true */
 	public static boolean split53(int[] nums) {
 		return split53Helper(nums,0,0,0);
 	}
