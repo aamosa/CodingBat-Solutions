@@ -14,23 +14,24 @@
 	 * maxSpan([1, 4, 2, 1, 4, 1, 4]) → 6
 	 * maxSpan([1, 4, 2, 1, 4, 4, 4]) → 6
  	 */
- 	public static int maxSpan(int[] nums) {
+     public static int maxSpan(int[] nums) {
         int max = 0, span = 0;
-		if (nums.length > 0 && nums[0] == nums[nums.length-1]) {
+        if (nums.length > 0 && nums[0] == nums[nums.length-1]) {
             return nums.length;
-		}
-		for (int i = 0; i < nums.length; i++) {
+        }
+        for (int i = 0; i < nums.length; i++) {
             for (int j = nums.length-1; j >= 0; j--) {
                 if (nums[i] == nums[j]) {
                     span = j - i + 1;
-				    if (span > max) {
-					   max = span;
+                    if (span > max) {
+                        max = span;
 				    }
                 }
             }
         }
 		return max;	 
 	}
+ 	
 
 	/**
 	 * Return an array that contains exactly the same numbers as the given array, but rearranged so that every 3 is immediately 
