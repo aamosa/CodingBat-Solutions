@@ -59,9 +59,9 @@
   
   /**
    *(This is a slightly harder version of the fix34 problem.) Return an array that contains exactly the same numbers as the given array,
-   * but rearranged so that every 4 is immediately followed by a 5. Do not move the 4's, but every other number may move. The array contains 
-   * the same number of 4's and 5's, and every 4 has a number after it that is not a 4. In this version, 5's may appear anywhere in the original 
-   * array.
+   * but rearranged so that every 4 is immediately followed by a 5. Do not move the 4's, but every other number may move. The array 
+   * contains the same number of 4's and 5's, and every 4 has a number after it that is not a 4. In this version, 5's may appear
+   * anywhere in the original  array.
    * fix45([5, 4, 9, 4, 9, 5])      → [9, 4, 5, 4, 5, 9]
    * fix45([1, 4, 1, 5])            → [1, 4, 5, 1]
    * fix45([1, 4, 1, 5, 5, 4, 1])   → [1, 4, 5, 1, 1, 4, 5]
@@ -107,7 +107,8 @@
 
     /**
      * Given two arrays of ints sorted in increasing order, outer and inner, return true if all of the numbers in inner appear in outer. 
-     * The best solution makes only a single "linear" pass of both arrays, taking advantage of the fact that both arrays are already in sorted order.
+     * The best solution makes only a single "linear" pass of both arrays, taking advantage of the fact that both arrays
+     * are already in sorted order.
      * linearIn([1, 2, 4, 6], [2, 4])       → true
      * linearIn([1, 2, 4, 6], [2, 3, 4])    → false
      * linearIn([1, 2, 4, 4, 6], [2, 4])    → true
@@ -166,9 +167,9 @@
     }
 
     /**
-     * We'll say that a "mirror" section in an array is a group of contiguous elements such that somewhere in the array, the same group appears in reverse order. 
-     * For example, the largest mirror section in {1, 2, 3, 8, 9, 3, 2, 1} is length 3 (the {1, 2, 3} part). Return the size of the largest mirror section 
-     * found in the given array.
+     * We'll say that a "mirror" section in an array is a group of contiguous elements such that somewhere in the array, the same 
+     * group appears in reverse order. For example, the largest mirror section in {1, 2, 3, 8, 9, 3, 2, 1} is length 3
+     * (the {1, 2, 3} part). Return the size of the largest mirror section found in the given array.
      * maxMirror([1, 2, 3, 8, 9, 3, 2, 1]) → 3
      * maxMirror([1, 2, 1, 4]) 		→ 3
      * maxMirror([7, 1, 2, 9, 7, 2, 1]) → 2
@@ -195,7 +196,8 @@
     }
 
     /**
-     * Say that a "clump" in an array is a series of 2 or more adjacent elements of the same value. Return the number of clumps in the given array.
+     * Say that a "clump" in an array is a series of 2 or more adjacent elements of the same value. 
+     * Return the number of clumps in the given array.
      * countClumps([1, 2, 2, 3, 4, 4]) 	→ 2
      * countClumps([1, 1, 2, 1, 1]) 	→ 2
      * countClumps([1, 1, 1, 1, 1]) 	→ 1
