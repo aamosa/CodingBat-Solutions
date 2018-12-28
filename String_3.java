@@ -228,12 +228,11 @@ public class String_3 {
      * in "this" does not count. (Note: Character.isLetter(char) tests if a char is a letter.)
      *
      * notReplace("is test")		→ "is not test"
-     * notReplace("is-is") 			→ "is not-is not"
-     * notReplace("This is right")  → "This is not right"
+     * notReplace("is-is") 		→ "is not-is not"
+     * notReplace("This is right")  	→ "This is not right"
      */
     public static String notReplace(String str) {
         StringBuilder sb = new StringBuilder();
-        
         for (int i = 0; i < str.length(); i++) {
             if (i+1 < str.length() && str.substring(i,i+2).equals("is")) {
                 if (i-1 >= 0 && Character.isLetter(str.charAt(i-1)) 
