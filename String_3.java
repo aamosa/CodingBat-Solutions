@@ -57,14 +57,12 @@ public class String_3 {
      * Given a string, return true if the number of appearances of "is" anywhere in the string is equal to the number of appearances 
      * of "not" anywhere in the string (case sensitive).
      * 
-     * equalIsNot("This is not") 		   → false
+     * equalIsNot("This is not") 	   → false
      * equalIsNot("This is notnot") 	   → true
      * equalIsNot("noisxxnotyynotxisi")    → true
      */
     public static boolean equalIsNot(String str) {
-        int isCount = 0, notCount = 0;
-        int len = str.length();
-
+        int isCount = 0, notCount = 0, len = str.length();
         for (int i = 0; i < len; i++) {
             if (i+1 < len && str.substring(i,i+2).equals("is")) {
                 isCount++;
