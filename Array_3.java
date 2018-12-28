@@ -34,29 +34,30 @@
 
 	/**
 	 * Return an array that contains exactly the same numbers as the given array, but rearranged so that every 3 is immediately 
-   * followed by a 4. Do not move the 3's, but every other number may move. The array contains the same number of 3's and 4's, 
-   * every 3 has a number after it that is not a 3, and a 3 appears in the array before any 4.
-   * ix34([1, 3, 1, 4])           → [1, 3, 4, 1]
-   * fix34([1, 3, 1, 4, 4, 3, 1]) → [1, 3, 4, 1, 1, 3, 4]
-   * fix34([3, 2, 2, 4])          → [3, 4, 2, 2]
+   	 * followed by a 4. Do not move the 3's, but every other number may move. The array contains the same number of 3's and 4's, 
+   	 * every 3 has a number after it that is not a 3, and a 3 appears in the array before any 4.
+   	 * fix34([1, 3, 1, 4])          → [1, 3, 4, 1]
+   	 * fix34([1, 3, 1, 4, 4, 3, 1]) → [1, 3, 4, 1, 1, 3, 4]
+   	 * fix34([3, 2, 2, 4])          → [3, 4, 2, 2]
 	 */
-	public int[] fix34(int[] nums) {
+     public int[] fix34(int[] nums) {
         int previous = 0;
         for (int i = 0, j = 1; i < nums.length; i++) {
             if (nums[i] == 3) {
                 for (j = previous; j <= nums.length-1; j++) {
                     if (nums[j] == 4 && nums[j-1] != 3) {
-					   int temp = nums[j];
-						nums[j] = nums[i+1];
-						nums[i+1] = temp;
-						previous = j;
-						break;						
-					}
-				}
-			}
-		}
+                        int temp = nums[j];
+                        nums[j] = nums[i+1];
+                        nums[i+1] = temp;
+                        previous = j;
+                        break;
+                    }
+                }
+            }
+        }
         return nums;
-	}
+    }
+	
   
   /**
    *(This is a slightly harder version of the fix34 problem.) Return an array that contains exactly the same numbers as the given array,
@@ -171,7 +172,7 @@
      * For example, the largest mirror section in {1, 2, 3, 8, 9, 3, 2, 1} is length 3 (the {1, 2, 3} part). Return the size of the largest mirror section 
      * found in the given array.
      * maxMirror([1, 2, 3, 8, 9, 3, 2, 1]) → 3
-     * maxMirror([1, 2, 1, 4]) → 3
+     * maxMirror([1, 2, 1, 4]) 		→ 3
      * maxMirror([7, 1, 2, 9, 7, 2, 1]) → 2
      */
     public int maxMirror(int[] nums) {
@@ -198,9 +199,9 @@
 
     /**
      * Say that a "clump" in an array is a series of 2 or more adjacent elements of the same value. Return the number of clumps in the given array.
-     * countClumps([1, 2, 2, 3, 4, 4]) → 2
-     * countClumps([1, 1, 2, 1, 1]) → 2
-     * countClumps([1, 1, 1, 1, 1]) → 1
+     * countClumps([1, 2, 2, 3, 4, 4]) 	→ 2
+     * countClumps([1, 1, 2, 1, 1]) 	→ 2
+     * countClumps([1, 1, 1, 1, 1]) 	→ 1
      */
     public int countClumps(int[] nums) {
         int count = 0, len = nums.length-1;
