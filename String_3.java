@@ -1,7 +1,6 @@
 /**
  * Solutions to coding challenges from codingbat.com
  * Section: String-3
- * Date: 11/29/2018
  * Author: Omar Ahmed
  *
  */
