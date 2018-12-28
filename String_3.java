@@ -85,23 +85,22 @@ public class String_3 {
    public static boolean gHappy(String str) {
        for (int i = 0; i < str.length(); i++) {
            if (str.charAt(i) == 'g') {
-                int end = i + 1;
-                int j = end;
-			    for ( ; j < str.length() && str.charAt(j) == 'g'; j++);
-			    if (j == end) {
-			    return false;
-			    } else {
-				    i = j;
-		        }
-	        }
-	    }
-        return true;
+               int end = i + 1;
+               int j = end;
+               for ( ; j < str.length() && str.charAt(j) == 'g'; j++);
+               if (j == end) {
+                   return false;
+               } else {
+                   i = j;
+               }
+           }
+       }
+       return true;
     }
 
     /**
     * We'll say that a "triple" in a string is a char appearing three times in a row. Return the number of triples in the given string. 
     * The triples may overlap.
-
     * countTriple("abcXXXabc")   → 1
     * countTriple("xxxabyyyycd") → 3
     * countTriple("a")           → 0
@@ -226,8 +225,8 @@ public class String_3 {
      * in "this" does not count. (Note: Character.isLetter(char) tests if a char is a letter.)
      *
      * notReplace("is test")		→ "is not test"
-     * notReplace("is-is") 		→ "is not-is not"
-     * notReplace("This is right")  	→ "This is not right"
+     * notReplace("is-is") 		    → "is not-is not"
+     * notReplace("This is right")  → "This is not right"
      */
     public static String notReplace(String str) {
         StringBuilder sb = new StringBuilder();
