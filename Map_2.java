@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 
-	public class Map_2 {
+public class Map_2 {
 	/**
 	 * Given an array of strings, return a Map<String, Integer> containing a key for every different string in the array, 
 	 * always with the value 0. For example, the string "hello" makes the pair "hello":0 . We'll do more complicated 
@@ -201,4 +201,4 @@ import java.util.LinkedHashMap;
 		String[] words = {"eat", "sleep", "code", "sleep", "code", "code"};
 		System.out.println(wordAppend(words));
 	}
- }
+}
