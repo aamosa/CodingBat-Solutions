@@ -1,7 +1,6 @@
 /**
  * Solutions to coding challenges from codingbat.com
  * Section: Array-3
- * Date: 12/1/2018
  * Author: Omar Ahmed
  */
 
