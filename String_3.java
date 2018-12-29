@@ -17,7 +17,6 @@ public class String_3 {
     public static int countYZ(String str) {
         str = str.toLowerCase();
         int count = 0;
-
         for (int i = 0; i < str.length(); i++) {
         if (i < str.length()-1 && (str.charAt(i) == 'y' || str.charAt(i) == 'z') && !Character.isLetter(str.charAt(i+1))) {
               count++;
@@ -118,9 +117,9 @@ public class String_3 {
     }
 
     /**
-    * Given a string, return the sum of the digits 0-9 that appear in the string, ignoring all other characters. Return 0 if there are no digits 
-    * in the string. (Note: Character.isDigit(char) tests if a char is one of the chars '0', '1', .. '9'. 
-    * Integer.parseInt(string) converts a string to an int.)
+    * Given a string, return the sum of the digits 0-9 that appear in the string, ignoring all other characters.
+    * Return 0 if there are no digits in the string. (Note: Character.isDigit(char) tests if a char is one of the chars 
+    * '0', '1', .. '9'. Integer.parseInt(string) converts a string to an int.)
     *
     * sumDigits("aa1bc2d3")   → 6
     * sumDigits("aa11b33")    → 8
@@ -159,9 +158,9 @@ public class String_3 {
     }
 
     /**
-    * Given a string, look for a mirror image (backwards) string at both the beginning and end of the given string. In other words, zero or 
-    * more characters at the very begining of the given string, and at the very end of the string in reverse order (possibly overlapping). 
-    * For example, the string "abXYZba" has the mirror end "ab".
+    * Given a string, look for a mirror image (backwards) string at both the beginning and end of the given string. 
+    * In other words, zero or more characters at the very begining of the given string, and at the very end of the string 
+    * in reverse order (possibly overlapping). For example, the string "abXYZba" has the mirror end "ab".
     *
     * mirrorEnds("abXYZba") → "ab"
     * mirrorEnds("abca")    → "a"
@@ -198,9 +197,9 @@ public class String_3 {
     }
 
     /**
-    * Given a string, return the sum of the numbers appearing in the string, ignoring all other characters. A number is a series of 1 or more digit 
-    * chars in a row. (Note: Character.isDigit(char) tests if a char is one of the chars '0', '1', .. '9'. Integer.parseInt(string) converts a string 
-    * to an int.)
+    * Given a string, return the sum of the numbers appearing in the string, ignoring all other characters. A number
+    * is a series of 1 or more digit chars in a row. (Note: Character.isDigit(char) tests if a char is one of the chars
+    * '0', '1', .. '9'. Integer.parseInt(string) converts a string to an int.)
     *
     * sumNumbers("abc123xyz")   → 123
     * sumNumbers("aa11b33")     → 44
