@@ -41,10 +41,10 @@ public class Recursion_2 {
 	 * group sums to the given target with this additional constraint: If a value in the array is chosen 
 	 * to be in the group, the value immediately following it in the array must not be chosen. 
 	 * Key idea: nums[start] is chosen or it is not.
-  	 * deal with nums[start], letting recursion deal with all the rest of the array.
-	 * groupNoAdj(0, [2,5,10,4], 12) → true
-	 * groupNoAdj(0, [2,5,10,4], 14) → false
-	 * groupNoAdj(0, [2,5,10,4], 7) → false
+	 * deal with nums[start], letting recursion deal with all the rest of the array.
+	 * groupNoAdj(0, [2,5,10,4], 12) 	→ true
+	 * groupNoAdj(0, [2,5,10,4], 14) 	→ false
+	 * groupNoAdj(0, [2,5,10,4], 7) 	→ false
 	 */
 	public static boolean groupNoAdj(int start, int[] nums, int target) {
 		if (start >= nums.length) return target == 0;
@@ -65,7 +65,7 @@ public class Recursion_2 {
 	public static boolean groupSum5(int start, int[] nums, int target) {
 		if (start >= nums.length) return target == 0;
 		if (start < nums.length-1 && nums[start]%5 == 0) {
-	   		if (nums[start+1] == 1)
+			if (nums[start+1] == 1)
 				return groupSum5(start+2, nums, target-nums[start]);
 			return groupSum5(start+1, nums, target-nums[start]);
 		}
@@ -95,7 +95,7 @@ public class Recursion_2 {
 			return groupSumClump(start+1, nums, target-nums[start]) || groupSumClump(start+2, nums, target);
 		return groupSumClump(start+1, nums, target);
 	}
-	
+
 	/**
 	 * Given an array of ints, is it possible to divide the ints into two groups, so that the sums of the two
 	 * groups are the same. Every int must be in one group or the other. Write a recursive helper method that
@@ -168,7 +168,8 @@ public class Recursion_2 {
 		if (nums[start]%5 == 0) {
 			return split53Helper(nums, start+1, groupSum, groupSum1+nums[start]);
 		}
-		return split53Helper(nums, start+1, groupSum, groupSum1+nums[start]) || (split53Helper(nums, start+1, groupSum+nums[start], groupSum1));
+		return split53Helper(nums, start+1, groupSum, groupSum1+nums[start]) 
+				|| (split53Helper(nums, start+1, groupSum+nums[start], groupSum1));
 	}
 
 	public static void main(String[] args) {
