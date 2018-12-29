@@ -40,7 +40,6 @@ public class String_3 {
         StringBuilder sb = new StringBuilder();
         String baseLowercase = base.toLowerCase();
         String removeLowercase = remove.toLowerCase(); 
-
         int j = 0;
         for (int i = 0; i <= base.length() - remove.length(); i++) {
           if (baseLowercase.substring(i,i+remove.length()).equals(removeLowercase)) {
@@ -56,7 +55,7 @@ public class String_3 {
      * Given a string, return true if the number of appearances of "is" anywhere in the string is equal to the number of appearances 
      * of "not" anywhere in the string (case sensitive).
      * 
-     * equalIsNot("This is not") 	   → false
+     * equalIsNot("This is not") 	       → false
      * equalIsNot("This is notnot") 	   → true
      * equalIsNot("noisxxnotyynotxisi")    → true
      */
