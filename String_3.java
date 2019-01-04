@@ -222,8 +222,8 @@ public class String_3 {
      * "is not". The word "is" should not be immediately preceded or followed by a letter. -- So for example the "is"
      * in "this" does not count. (Note: Character.isLetter(char) tests if a char is a letter.)
      *
-     * notReplace("is test")		→ "is not test"
-     * notReplace("is-is") 		    → "is not-is not"
+     * notReplace("is test")        → "is not test"
+     * notReplace("is-is")          → "is not-is not"
      * notReplace("This is right")  → "This is not right"
      */
     public static String notReplace(String str) {
