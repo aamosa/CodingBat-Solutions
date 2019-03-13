@@ -1,7 +1,6 @@
 /**
  * Solutions to coding challenges from codingbat.com
  * Section: Map-1
- * Date: 12/21/2018
  * Author: Omar Ahmed
  *
  */
@@ -10,12 +9,11 @@
  import java.util.Arrays;
 
  /**
-  * <Java Map API>
-  *   Map<String, String> map = new HashMap<String, String>() - Creates a new empty Map. 
-  *   map.get(key) - Retrieves the stored value for a key, or null if that key is not present in the map.
-  *   map.put(key, value) - Stores a new key/value pair in the map. Overwrites any existing value already at that key.
+  *   Java Map API
+  *   map.get(key)         - Retrieves the stored value for a key, or null if that key is not present in the map.
+  *   map.put(key, value)  - Stores a new key/value pair in the map. Overwrites any existing value already at that key.
   *   map.containsKey(key) - Returns true if the key is in the map, false otherwise.
-  *   map.remove(key) - Removes the key/value pair for this key if present. Does nothing if the key is not present.
+  *   map.remove(key)      - Removes the key/value pair for this key if present. Does nothing if the key is not present.
   *
   */
 
@@ -24,7 +22,7 @@
     * Modify and return the given map as follows: if the key "a" has a value, set the key "b" to
     * have that value, and set the key "a" to have the value "". Basically "b" is a bully, taking
     * the value and replaceing it with an empty string.
-    * mapBully({"a":"candy", "b","dirt"}) → {"a":"", "b":"candy"}
+    * mapBully({"a":"candy", "b","dirt"})                 → {"a":"", "b":"candy"}
     * mapBully({"a": "candy", "b": "carrot", "c": "meh"}) → {"a": "", "b": "candy", "c": "meh"}
     */
    public static Map<String, String> mapBully(Map<String, String> map) {
@@ -51,8 +49,8 @@
     * "a" and "b" keys. If both keys are present, append their 2 string values together and store the 
     * result under the key "ab".
     * mapAB({"a": "Hi", "b": "There"}) → {"a": "Hi", "ab": "HiThere", "b": "There"}
-    * mapAB({"a": "Hi"}) → {"a": "Hi"}
-    * mapAB({"b": "There"}) → {"b": "There"}
+    * mapAB({"a": "Hi"})               → {"a": "Hi"}
+    * mapAB({"b": "There"})            → {"b": "There"}
     */
    public static Map<String, String> mapAB(Map<String, String> map) {
       if (map.containsKey("a") && map.containsKey("b")) {
@@ -66,8 +64,8 @@
     * "ice cream" is present set its value to "cherry". In all cases, set the key "bread" to have the
     * value "butter".
     * topping1({"ice cream": "peanuts"}) → {"bread": "butter", "ice cream": "cherry"}
-    * topping1({}) → {"bread": "butter"}
-    * topping1({"pancake": "syrup"}) → {"bread": "butter", "pancake": "syrup"}
+    * topping1({})                       → {"bread": "butter"}
+    * topping1({"pancake": "syrup"})     → {"bread": "butter", "pancake": "syrup"}
     */
    public static Map<String, String> topping1(Map<String, String> map) {
       if (map.containsKey("ice cream")) {
@@ -81,9 +79,9 @@
     * Given a map of food keys and topping values, modify and return the map as follows: if the key
     * "ice cream" has a value, set that as the value for the key "yogurt" also. If the key "spinach" 
     * has a value, change that value to "nuts".
-    * topping2({"ice cream": "cherry"}) → {"yogurt": "cherry", "ice cream": "cherry"}
+    * topping2({"ice cream": "cherry"})                    → {"yogurt": "cherry", "ice cream": "cherry"}
     * topping2({"spinach": "dirt", "ice cream": "cherry"}) → {"yogurt": "cherry", "spinach": "nuts", "ice cream": "cherry"}
-    * topping2({"yogurt": "salt"}) → {"yogurt": "salt"}
+    * topping2({"yogurt": "salt"})                         → {"yogurt": "salt"}
     */
    public static Map<String, String> topping2(Map<String, String> map) {
       if (map.containsKey("ice cream")) {
@@ -100,7 +98,7 @@
     * "potato" has a value, set that as the value for key "fries". If the key "salad" has a value, 
     * set that as the value for the key "spinach".
     * topping3({"potato": "ketchup"}) → {"potato": "ketchup", "fries": "ketchup"}
-    * topping3({"potato": "butter"}) → {"potato": "butter", "fries": "butter"}
+    * topping3({"potato": "butter"})  → {"potato": "butter", "fries": "butter"}
     * topping3({"salad": "oil", "potato": "ketchup"}) → {"spinach": "oil", "salad": "oil", "potato": "ketchup", "fries": "ketchup"}
     */
    public static Map<String, String> topping3(Map<String, String> map) {
@@ -117,8 +115,8 @@
     * Modify and return the given map as follows: if the keys "a" and "b" are both in the map and have equal 
     * values, remove them both.
     * mapAB2({"a": "aaa", "b": "aaa", "c": "cake"}) → {"c": "cake"}
-    * mapAB2({"a": "aaa", "b": "bbb"}) → {"a": "aaa", "b": "bbb"}
-    * mapAB2({"a": "aaa", "b": "bbb", "c": "aaa"}) → {"a": "aaa", "b": "bbb", "c": "aaa"}
+    * mapAB2({"a": "aaa", "b": "bbb"})              → {"a": "aaa", "b": "bbb"}
+    * mapAB2({"a": "aaa", "b": "bbb", "c": "aaa"})  → {"a": "aaa", "b": "bbb", "c": "aaa"}
     */
    public static Map<String, String> mapAB2(Map<String, String> map) {
       if (map.containsKey("a") && map.get("a").equals(map.get("b"))) {
