@@ -1,9 +1,7 @@
-/*
+/**
  * Solutions to coding challenges from codingbat.com
  * Section: Recursion_1
- * Date: 12/15/2018
  * Author: Omar Ahmed
- *
  */
  import java.util.Arrays;
 
@@ -66,8 +64,9 @@
    /*
     * Given a non-negative int n, return the sum of its digits recursively (no loops).
     * sumDigits(126) → 9
-    * sumDigits(49) → 13
-    * sumDigits(12) → 3 */
+    * sumDigits(49)  → 13
+    * sumDigits(12)  → 3
+    */
    public static int sumDigits(int n) {
       if (n/10 == 0) return n;
       return n%10 + sumDigits(n/10);
@@ -76,7 +75,8 @@
    /*
     * Given a non-negative int n, return the count of the occurrences of 7 as a digit.
     * count7(717) → 2
-    * count7(7) → 1 */
+    * count7(7) → 1
+    */
    public static int count7(int n) {
       int s = 0;
       if (n%10 == 7) {
@@ -218,8 +218,8 @@
    /*
     * Given a string, compute recursively a new string where all lowercase 'x' chars have been moved to 
     * the end of the string.
-    * endX("xxre") → "rexx" 
-    * endX("xxhixx") → "hixxxx"
+    * endX("xxre")    → "rexx" 
+    * endX("xxhixx")  → "hixxxx"
     * endX("xhixhix") → "hihixxx" */
    public static String endX(String str) {
       if (str.length() <= 0) return str;
@@ -231,7 +231,7 @@
    /*
     * We'll say that a "pair" in a string is two instances of a char separated by a char. So in "AxA"
     * the "A's" make a pair. Pairs can overlap. Recursively compute the number of pairs in the given string.
-    * countPairs("axa") → 1
+    * countPairs("axa")  → 1
     * countPairs("axax") → 2 */
    public static int countPairs(String str) {
       if (str.length() <= 2) return 0;
@@ -240,7 +240,7 @@
 
    /*
     * Count recursively the total number of "abc" and "aba" substrings that appear in the given string.
-    * countAbc("abc") → 1
+    * countAbc("abc")      → 1
     * countAbc("abaxxaba") → 2 */
    public static int countAbc(String str) {
       if (str.length() <= 2) return 0;          
@@ -264,7 +264,7 @@
    /*
     * Given a string, return recursively a "cleaned" string where adjacent chars that are the same
     * have been reduced to a single char. 
-    * stringClean("yyzzza") → "yza"
+    * stringClean("yyzzza")  → "yza"
     * stringClean("abbbcdd") → "abcd" */
    public static String stringClean(String str) {
       if (str.length() <= 1) return str;
