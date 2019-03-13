@@ -1,2 +1,2 @@
 ## CodingBat-Solutions
-Coding solutions to challenges from [CodingBat.com](www.codingbat.com)
+Coding solutions to challenges from [CodingBat.com](http://www.codingbat.com)
