@@ -1,250 +1,179 @@
-/**
- * Solutions to coding challenges from codingbat.com
- * Section: String-3
- * Author: Omar Ahmed
- *
- */
-public class String_3 {
-    /**
-     * Given a string, count the number of words ending in "y" or "z" -- so 'y' in "heavy" and 'z' in "fez" count, but not
-     * the 'y' in "yellow" (not case sensitive). We'll say that a y or z is at the end of a word if there is not an alphabetic
-     * letter immediately following it. (Note: Character.isLetter(char) tests if a char is an alphabetic letter.)
-     *
-     * countYZ("fez day")   → 2
-     * countYZ("day fez")   → 2
-     * countYZ("day fyyyz") → 2
-     */
-    public static int countYZ(String str) {
-        str = str.toLowerCase();
-        int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-        if (i < str.length()-1 && (str.charAt(i) == 'y' || str.charAt(i) == 'z') && !Character.isLetter(str.charAt(i+1))) {
-              count++;
-            } else if (i == str.length()-1 && (str.charAt(i) == 'y' || str.charAt(i) == 'z')) {
-                count++;
-            }
-        }	
-        return count;  
-    }
-    
-    /**
-     * Given two strings, base and remove, return a version of the base string where all instances of the remove string
-     * have been removed (not case sensitive). You may assume that the remove string is length 1 or more. Remove only 
-     * non-overlapping instances, so with "xxx" removing "xx" leaves "x".
-     *
-     * withoutString("Hello there", "llo")  → "He there"
-     * withoutString("Hello there", "e") 	→ "Hllo thr"
-     * withoutString("Hello there", "x") 	→ "Hello there"
-     */
-    public static String withoutString(String base, String remove) {
-        StringBuilder sb = new StringBuilder();
-        String baseLowercase = base.toLowerCase();
-        String removeLowercase = remove.toLowerCase(); 
-        int j = 0;
-        for (int i = 0; i <= base.length() - remove.length(); i++) {
-          if (baseLowercase.substring(i,i+remove.length()).equals(removeLowercase)) {
-                sb.append(base,j,i);
-                i = i + remove.length()-1;					
-                j = i+1;
-            }
-        }
-        return sb.append(base,j,base.length()).toString();
-    }
+ /**
+  * Solutions to coding challenges from codingbat.com.
+  * Section: Recursion-2
+  * Author: Omar Ahmed 
+  *
+  */
+import java.util.Arrays;
 
-    /**
-     * Given a string, return true if the number of appearances of "is" anywhere in the string is equal to the number of appearances 
-     * of "not" anywhere in the string (case sensitive).
-     * 
-     * equalIsNot("This is not")            → false
-     * equalIsNot("This is notnot")         → true
-     * equalIsNot("noisxxnotyynotxisi")     → true
-     */
-    public static boolean equalIsNot(String str) {
-        int isCount = 0, notCount = 0, len = str.length();
-        for (int i = 0; i < len; i++) {
-            if (i+1 < len && str.substring(i,i+2).equals("is")) {
-                isCount++;
-            }
-            if (i+2 < len && str.substring(i,i+3).equals("not")) {
-                notCount++;
-            }
-        }
-        return isCount == notCount;
-    }
-
-    /**
-     * We'll say that a lowercase 'g' in a string is "happy" if there is another 'g' immediately to its left or right. Return true 
-     * if all the g's in the given string are happy.
-     *
-     * gHappy("xxggxx")     → true
-     * gHappy("xxgxx")      → false
-     * gHappy("xxggyygxx")  → false
-     */
-   public static boolean gHappy(String str) {
-       for (int i = 0; i < str.length(); i++) {
-           if (str.charAt(i) == 'g') {
-               int end = i + 1;
-               int j = end;
-               for ( ; j < str.length() && str.charAt(j) == 'g'; j++);
-               if (j == end) {
-                   return false;
-               } else {
-                   i = j;
-               }
-           }
-       }
-       return true;
-    }
-
-    /**
-    * We'll say that a "triple" in a string is a char appearing three times in a row. Return the number of triples in the given string. 
-    * The triples may overlap.
-    * countTriple("abcXXXabc")   → 1
-    * countTriple("xxxabyyyycd") → 3
-    * countTriple("a")           → 0
+public class Recursion_2 {
+   /**
+    * Given an array of ints, is it possible to choose a group of some of the ints, 
+    * such that the group sums to the given target?
+    * groupSum(0, [2,4,8], 10) → true 
+    * groupSum(0, [2,4,8], 14) → true 
+    * groupSum(0, [2,4,8], 9)  → false
     */
-    public static int countTriple(String str) {
-        int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-             int j = i;
-             while(++j < str.length() && str.charAt(j) == str.charAt(i));
-             if (j - i >= 3) {
-                count++;
-             } 
-        }  
-        return count;
-    }
+   public static boolean groupSum(int start, int[] nums, int target) {
+      if (start >= nums.length) return target == 0;
+      if (groupSum(start+1, nums, target-nums[start])) 
+         return true;
+      return groupSum(start+1, nums, target);
+   }
 
-    /**
-    * Given a string, return the sum of the digits 0-9 that appear in the string, ignoring all other characters.
-    * Return 0 if there are no digits in the string. (Note: Character.isDigit(char) tests if a char is one of the chars 
-    * '0', '1', .. '9'. Integer.parseInt(string) converts a string to an int.)
-    *
-    * sumDigits("aa1bc2d3")   → 6
-    * sumDigits("aa11b33")    → 8
-    * sumDigits("Chocolate")  → 0
+   /**
+    * Given an array of ints, is it possible to choose a group of some of the ints,
+    * beginning at the start index, such that the group sums to the given target? 
+    * However, with the additional constraint that all 6's must be chosen.
+    * groupSum6(0, [5,6,2], 8)      → true
+    * groupSum6(0, [5,6,2], 9)      → false 
+    * groupSum6(0, [3,2,4,6], 8)    → true 
     */
-    public static int sumDigits(String str) {
-        int sum = 0;
-        for (int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
-            if (Character.isDigit(ch)) {
-                sum += Integer.parseInt(String.valueOf(ch));
-            }
-        }
-        return sum;
-    }
+   public static boolean groupSum6(int start, int[] nums, int target) {
+      if (start >= nums.length) return target == 0;
+      if (groupSum6(start+1, nums, target-nums[start]))
+         return true;
+      return nums[start] == 6 ? groupSum6(start+1, nums, target-nums[start]) : groupSum6(start+1, nums, target);
+   }
 
-    /**
-    * Given a string, return the longest substring that appears at both the beginning and end of the string without overlapping. 
-    * For example, sameEnds("abXab") is "ab".
-    *
-    * sameEnds("abXYab")   → "ab"
-    * sameEnds("xx")       → "x"
-    * sameEnds("xxx")      → "x"
+   /** 
+    * Given an array of ints, is it possible to choose a group of some of the ints, such that the 
+    * group sums to the given target with this additional constraint: If a value in the array is chosen 
+    * to be in the group, the value immediately following it in the array must not be chosen. 
+    * Key idea: nums[start] is chosen or it is not.
+    * deal with nums[start], letting recursion deal with all the rest of the array.
+    * groupNoAdj(0, [2,5,10,4], 12)    → true
+    * groupNoAdj(0, [2,5,10,4], 14)    → false
+    * groupNoAdj(0, [2,5,10,4], 7)     → false
     */
-    public static String sameEnds(String string) {
-        StringBuilder res = new StringBuilder();
-        int len = string.length()/2;
+   public static boolean groupNoAdj(int start, int[] nums, int target) {
+      if (start >= nums.length) return target == 0;
+      if (groupNoAdj(start + 2, nums, target - nums[start])) {
+         return true;
+      }
+      return groupNoAdj(start+1, nums, target);
+   }
 
-        for (int i = 0, j = len; i <= len-1 && j < string.length(); j++) {
-            if (string.charAt(j) == string.charAt(i)) {
-                res.append(string.charAt(i));
-                i++;
-            }
-        }
-        return res.toString();
-    }
-
-    /**
-    * Given a string, look for a mirror image (backwards) string at both the beginning and end of the given string. 
-    * In other words, zero or more characters at the very begining of the given string, and at the very end of the string 
-    * in reverse order (possibly overlapping). For example, the string "abXYZba" has the mirror end "ab".
-    *
-    * mirrorEnds("abXYZba") → "ab"
-    * mirrorEnds("abca")    → "a"
-    * mirrorEnds("aba")     → "aba"
+   /** 
+    * Given an array of ints, is it possible to choose a group of some of the ints, such that the group sums to the
+    * given target with these additional constraints: all multiples of 5 in the array must be included in the group. 
+    * If the value immediately following a multiple of 5 is 1, it must not be chosen.
+    * groupSum5(0, [2,5,10,4], 19)  → true
+    * groupSum5(0, [2,5,10,4], 17)  → true 
+    * groupSum5(0, [3,5,1], 4)      → false
     */
-    public static String mirrorEnds(String string) {
-        int end = string.length()-1, k = end;
-        int i = 0;
-        for ( ; i < string.length() && string.charAt(i) == string.charAt(k); i++, k--); 
-        if (i == end) {
-            return string;
-        }
-        return string.substring(0,i);
-    }
+   public static boolean groupSum5(int start, int[] nums, int target) {
+      if (start >= nums.length) return target == 0;
+      if (start < nums.length-1 && nums[start]%5 == 0) {
+         if (nums[start+1] == 1)
+            return groupSum5(start+2, nums, target-nums[start]);
+         return groupSum5(start+1, nums, target-nums[start]);
+      }
+      return groupSum5(start+1, nums, target-nums[start]) || groupSum5(start+1, nums, target);
+   }
 
-    /**
-    * Given a string, return the length of the largest "block" in the string. A block is a run of adjacent chars that are the same.
-    *
-    * maxBlock("hoopla")        → 2
-    * maxBlock("abbCCCddBBBxx") → 3
-    * maxBlock("")              → 0
+   /**
+    * Given an array of ints, is it possible to choose a group of some of the ints, such that the group sums to 
+    * the given target, with this additional constraint: if there are numbers in the array that are adjacent and the
+    * identical value, they must either all be chosen, or none of them chosen. (one loop can be used to find the 
+    * extent of the identical values).
+    * groupSumClump(0, [2,4,8], 10)     → true
+    * groupSumClump(0, [2,4,4,8], 14)   → false
+    * groupSumClump(0, [8,2,2,1], 9)    → true
     */
-    public static int maxBlock(String str) {
-        int max = 0;
-        for (int i = 0; i < str.length(); i++) {
-             int count = 0;
-             char ch = str.charAt(i);
-             while (++count + i < str.length() && str.charAt(count + i) == ch);         
-             if (count > max) {
-                max = count;
-             }
-        }      
-        return max;
-    }
+   public static boolean groupSumClump(int start, int[] nums, int target) {
+      if (start >= nums.length) return target == 0;
+      int d = 0;
+      for (int i = 0, j = 1; i < nums.length-1; i++) {
+         if (nums[i] == nums[j++]) {
+            d = nums[i];
+         }
+      }
+      if (groupSumClump(start+1, nums, target-nums[start]))
+         return true;
+      if (nums[start] == d)
+         return groupSumClump(start+1, nums, target-nums[start]) || groupSumClump(start+2, nums, target);
+      return groupSumClump(start+1, nums, target);
+   }
 
-    /**
-    * Given a string, return the sum of the numbers appearing in the string, ignoring all other characters. A number
-    * is a series of 1 or more digit chars in a row. (Note: Character.isDigit(char) tests if a char is one of the chars
-    * '0', '1', .. '9'. Integer.parseInt(string) converts a string to an int.)
-    *
-    * sumNumbers("abc123xyz")   → 123
-    * sumNumbers("aa11b33")     → 44
-    * sumNumbers("7 11")        → 18
+   /**
+    * Given an array of ints, is it possible to divide the ints into two groups, so that the sums of the two
+    * groups are the same. Every int must be in one group or the other. Write a recursive helper method that
+    * takes whatever arguments you like, and make the initial call to your recursive helper from splitArray().
+    * splitArray([2,2])    → true
+    * splitArray([2,3])    → false
+    * splitArray([5,2,3])  → true
     */
-    public static int sumNumbers(String str) {
-        int sum = 0;
-        for (int i = 0; i < str.length(); i++) {
-            if (Character.isDigit(str.charAt(i))) {
-                int j = i;
-                while(++j < str.length() && Character.isDigit(str.charAt(j)));
-                sum += Integer.parseInt(str.substring(i,j));
-                i = j;
-            }
-        }
-        return sum;
-    }
+   public static boolean splitArray(int[] nums) {
+      return splitArrayHelper(0,0,nums,0);
+   }
 
-    /**
-     * Given a string, return a string where every appearance of the lowercase word "is" has been replaced with
-     * "is not". The word "is" should not be immediately preceded or followed by a letter. -- So for example the "is"
-     * in "this" does not count. (Note: Character.isLetter(char) tests if a char is a letter.)
-     *
-     * notReplace("is test")        → "is not test"
-     * notReplace("is-is")          → "is not-is not"
-     * notReplace("This is right")  → "This is not right"
-     */
-    public static String notReplace(String str) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < str.length(); i++) {
-            if (i+1 < str.length() && str.substring(i,i+2).equals("is")) {
-                if (i-1 >= 0 && Character.isLetter(str.charAt(i-1)) 
-                        || (i+2 < str.length() && Character.isLetter(str.charAt(i+2)))) {
-                    sb.append(str.charAt(i));
-                } else {
-                    sb.append("is not");
-                    i += 1;
-                }
-            } else {
-                sb.append(str.charAt(i));
-            }
-        }
-        return sb.toString();
-    }
+   /**
+    * Helper method for the splitArray method.
+    */
+   public static boolean splitArrayHelper(int desiredSum, int start, int[] nums, int sum) {
+      if (start >= nums.length) return desiredSum == sum;
+      if (splitArrayHelper(desiredSum+nums[start], start+1, nums, sum)) {
+         return true;
+      } else {
+         return splitArrayHelper(desiredSum, start + 1, nums, sum + nums[start]);
+      }
+   }
 
-    public static void main(String[] args) {
-        System.out.println(notReplace("Dis is bliss"));
-    }
+   /**
+    * Given an array of ints, is it possible to divide the ints into two groups, so that the sum of one group is a 
+    * multiple of 10, and the sum of the other group is odd. Every int must be in one group or the other. 
+    * Write a recursive helper method that takes whatever arguments you like, and make the initial call to your 
+    * recursive helper from splitOdd10(). 
+    * splitOdd10([5,5,5])  → true
+    * splitOdd10([5,5,6])  → false
+    * splitOdd10([5,5,6,1]) → true
+    */
+   public static boolean splitOdd10(int[] nums) {
+      return splitOdd10Helper(nums,0,0,0);
+   }
+
+   /**
+    * Helper method for the splitOdd10 method.
+    */
+   private static boolean splitOdd10Helper(int nums[], int start, int sumGroup10, int sumGroupOdd) {     
+      if (start >= nums.length) return sumGroup10 % 10 == 0 && sumGroupOdd % 2 != 0;
+      if (splitOdd10Helper(nums, start+1, sumGroup10 + nums[start], sumGroupOdd)) {
+         return true;
+      } else {
+         return splitOdd10Helper(nums, start+1, sumGroup10, sumGroupOdd + nums[start]);
+      }
+   }
+
+   /** 
+    * Given an array of ints, is it possible to divide the ints into two groups, so that the sum of the two groups
+    * is the same, with these constraints: all the values that are multiple of 5 must be in one group, and all the
+    * values that are a multiple of 3 (and not a multiple of 5) must be in the other.
+    * split53([1,1])    → true
+    * split53([1,1,1])  → false
+    * split53([2,4,2])  → true 
+    */
+   public static boolean split53(int[] nums) {
+      return split53Helper(nums,0,0,0);
+   }
+
+   /** 
+    * Helper method for the split53 method.
+    */
+   private static boolean split53Helper(int[] nums, int start, int groupSum, int groupSum1) {
+      if (start >= nums.length) return groupSum == groupSum1;
+      if (nums[start]%3 == 0 && nums[start]%5 != 0) {
+         return split53Helper(nums, start+1, groupSum+nums[start], groupSum1);
+      }
+      if (nums[start]%5 == 0) {
+         return split53Helper(nums, start+1, groupSum, groupSum1+nums[start]);
+      }
+      return split53Helper(nums, start+1, groupSum, groupSum1+nums[start]) 
+            || (split53Helper(nums, start+1, groupSum+nums[start], groupSum1));
+   }
+
+   public static void main(String[] args) {
+      int[] nums2 = {2,5,10,4};
+      System.out.println(groupSum5(0,nums2,12));
+   }
 }
