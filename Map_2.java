@@ -197,7 +197,7 @@ public class Map_2 {
    }
 
    public static void main(String[] args) {
-      String[] words = {"eat", "sleep", "code", "sleep", "code", "code"};
+      String[] words = {"eat", "sleep", "code", "sleep", "code", "sleep"};
       System.out.println(wordAppend(words));
    }
 }
