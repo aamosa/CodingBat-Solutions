@@ -25,7 +25,7 @@
                  span = j - i + 1;
                  if (span > max) {
                      max = span;
-         }
+                 }
              }
          }
      }
