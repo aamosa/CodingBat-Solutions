@@ -1,6 +1,4 @@
-package com.atechac.web;
-
-import static org.junit.Assert.assertEquals;
+package test.codingbat.array
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -10,7 +8,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
-
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class MyTest {
@@ -29,7 +27,6 @@ public class MyTest {
    
    @Parameter(0)
    public int[] inputArray;
-   
       
    @Test
    public void testMethod() {
