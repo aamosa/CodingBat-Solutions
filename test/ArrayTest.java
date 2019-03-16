@@ -11,7 +11,7 @@ import org.junit.runners.Parameterized.Parameters;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class MyTest {
+public class TestArray {
    
    static int[] expectedValues = new int[] {3,3,0};
    static int index = 0;
@@ -29,7 +29,7 @@ public class MyTest {
    public int[] inputArray;
       
    @Test
-   public void testMethod() {
+   public void testCountEvens() {
       Runner testRunner = new Runner();
       assertEquals(expectedValues[index], testRunner.countEvens(inputArray));
    }
