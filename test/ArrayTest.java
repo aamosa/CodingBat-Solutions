@@ -20,12 +20,12 @@ public class TestArray {
    public static Collection<int[]> testData() {
       return Arrays.asList(new int[][] {  
          {2, 1, 2, 3, 4}, 
-			{2, 2, 0},
-			{1, 3, 5},
-			{11, 9, 0, 1},
-			{2, 11, 9, 0},
-			{2},
-			{2, 5, 12}
+         {2, 2, 0},
+         {1, 3, 5},
+         {11, 9, 0, 1},
+         {2, 11, 9, 0},
+         {2},
+         {2, 5, 12}
       });
    }
    
