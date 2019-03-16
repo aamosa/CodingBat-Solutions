@@ -1,4 +1,3 @@
-package test.codingbat.array
 
 import java.util.Arrays;
 import java.util.Collection;
