@@ -8,6 +8,7 @@ public String doubleChar(String str) {
   return result;
 }
 
+
 //countHi
 public int countHi(String str) {
   int count = 0;
@@ -18,6 +19,7 @@ public int countHi(String str) {
   }
   return count;
 }
+
 
 //catDog
 public boolean catDog(String str) {
@@ -30,6 +32,7 @@ public boolean catDog(String str) {
    return countCat == countDog;
 }
 
+
 //countCode
 public int countCode(String str) {
   int count = 0;  
@@ -41,12 +44,14 @@ public int countCode(String str) {
   return count;
 }
 
+
 //endOther
 public boolean endOther(String a, String b) {
   return a.length() > b.length() ? 
   a.substring(a.length() - b.length()).toLowerCase().equals(b.toLowerCase()) :
   b.substring(b.length() - a.length()).toLowerCase().equals(a.toLowerCase());
 }
+
 
 //xyzThere
 public boolean xyzThere(String str) {
@@ -59,6 +64,7 @@ public boolean xyzThere(String str) {
   }
   return false;
 }
+
 
 //bobThere
 public boolean bobThere(String str) {
@@ -84,6 +90,7 @@ public boolean xyBalance(String str) {
   return true;
 }
 
+
 //mixString
 public String mixString(String a, String b) {
   String result = "";
@@ -93,15 +100,15 @@ public String mixString(String a, String b) {
     result += a.charAt(i)+""+b.charAt(i);
   }
   result += a.length() > smallerString.length() ? 
-    a.substring(smallerString.length()) : b.substring(smallerString.length());
+      a.substring(smallerString.length()) : b.substring(smallerString.length());
 
   return result; 
 }
 
+
 //repeatEnd
 public String repeatEnd(String str, int n) {
   StringBuilder sb = new StringBuilder();
-  
   for (int i = 0; i < n; i++) {
     sb.append(str.substring(str.length() - n));  
   }
@@ -113,8 +120,7 @@ public String repeatEnd(String str, int n) {
 public String repeatFront(String str, int n) {
   StringBuilder result = new StringBuilder();
   result.append(str.substring(0,n));
-  
-  for (int i = n-1; i >= 0; i--){
+  for (int i = n-1; i >= 0; i--) {
     result.append(str.substring(0,i));  
   }
   return result.toString();
@@ -131,6 +137,7 @@ public String repeatSeparator(String word, String sep, int count) {
   return result.toString();
 }
 
+
 //prefixAgain
 public boolean prefixAgain(String str, int n) {
   String searchString = str.substring(0,n);
@@ -139,6 +146,7 @@ public boolean prefixAgain(String str, int n) {
   }
   return false;
 }
+
 
 //xyzMiddle
 public boolean xyzMiddle(String str) {
@@ -154,28 +162,6 @@ public boolean xyzMiddle(String str) {
   return false;
 }
 
-//getSandwich
-public String getSandwich(String str) {
-  StringBuilder result = new StringBuilder();
-  int count = 0, len = str.length();
-  
-  for (int i = 0; i < len-4; i++) {
-    if (str.substring(i,i+5).equals("bread")) {
-      if (count >= 2) break;
-      count++;
-      int index = i + 5;
-      int a = len - 5;
-      while (a-- > index) {
-        if (str.substring(a,a+5).equals("bread")) {
-          result.append(str.substring(index,a));
-          count++;
-          break;
-        }
-      }
-    }
-  }
-  return count >= 2 ? result.toString() : "";
-}
 
 //sameStarChar
 public boolean sameStarChar(String str) {
@@ -185,6 +171,7 @@ public boolean sameStarChar(String str) {
   }
   return true;
 }
+
 
 //oneTwo
 public String oneTwo(String str) {
@@ -198,6 +185,7 @@ public String oneTwo(String str) {
   return result.toString();
 }
 
+
 //zipZap
 public String zipZap(String str) {
   for (int i = 0; i < str.length()-2; i++) {
@@ -207,6 +195,7 @@ public String zipZap(String str) {
   }
   return str;
 }
+
 
 //starOut
 public String starOut(String str) {
