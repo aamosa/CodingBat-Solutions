@@ -1,2 +1,3 @@
 ## CodingBat-Solutions
-Coding solutions to challenges from [CodingBat.com](http://www.codingbat.com)
+* My coding solutions implemented in Java to challenges from [CodingBat.com](http://www.codingbat.com).
+* All examples have been tested and verified to be correct.
