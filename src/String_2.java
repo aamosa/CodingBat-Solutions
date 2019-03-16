@@ -220,23 +220,18 @@ public String starOut(String str) {
 
 //plusOut
 public String plusOut(String str, String word) {
-  String result = "";
-  String temp = "";
-    
+  String result = "", temp = "";
   for (int i = 0, j = 0; i < str.length(); i++) {
     if (str.charAt(i) == word.charAt(j)) {
       temp += str.charAt(i);        
       j++;
-      if (j < word.length()) {          
-        continue;
-      } else {
+      if (j < word.length()) continue;
+      else {
         result += temp;
         temp = "";
         j = 0;
       }
-    } else {
-      result += "+";
-    }
+    } else result += "+";
   }
   return result;
 }
